@@ -37,7 +37,7 @@ class Skill(SkillABC):
 
     def skill_effect(self) -> str:
         self.user.stamina -= self.stamina
-        self.target.get_damage(self.damage)
+        self.target.get_damage(round(self.damage, 1))
         return f"{self.user.name} использует {self.name} и наносит {round(self.damage, 1)} урона сопернику."
 
     def _is_stamina_enough(self):
