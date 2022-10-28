@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING
 
@@ -36,17 +37,22 @@ class Skill(SkillABC):
     damage = None
 
     def skill_effect(self) -> str:
+        """
+        Вывод результата применения умения.
+        """
         self.user.stamina -= self.stamina
         self.target.get_damage(round(self.damage, 1))
         return f"{self.user.name} использует {self.name} и наносит {round(self.damage, 1)} урона сопернику."
 
     def _is_stamina_enough(self):
+        """
+        Проверка, достаточно ли выносливости у игрока для применения умения.
+        """
         return self.user.stamina > self.stamina
 
     def use(self, user: BaseUnit, target: BaseUnit) -> str:
         """
-        Проверка, достаточно ли выносливости у игрока для применения умения.
-        Для вызова скилла везде используем просто use
+        Применение умения.
         """
         self.user = user
         self.target = target
