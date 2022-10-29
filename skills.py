@@ -44,7 +44,7 @@ class Skill(SkillABC):
         self.target.get_damage(round(self.damage, 1))
         return f"{self.user.name} использует {self.name} и наносит {round(self.damage, 1)} урона сопернику."
 
-    def _is_stamina_enough(self):
+    def _is_stamina_enough(self) -> bool:
         """
         Проверка, достаточно ли выносливости у игрока для применения умения.
         """

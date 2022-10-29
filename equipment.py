@@ -43,27 +43,27 @@ class Equipment:
         self.equipment = self._get_equipment_data()
 
     def get_weapon(self, weapon_name) -> Weapon:
-        '''
+        """
         Вооружение персонажа.
-        '''
+        """
         return next(filter(lambda w: w.name == weapon_name, self.equipment.weapons))
 
     def get_armor(self, armor_name) -> Armor:
-        '''
+        """
         Экипировка персонажа бронёй.
-        '''
+        """
         return next(filter(lambda a: a.name == armor_name, self.equipment.armors))
 
     def get_weapons_names(self) -> list:
-        '''
+        """
         Список доступного оружия.
-        '''
+        """
         return [weapon.name for weapon in self.equipment.weapons]
 
     def get_armors_names(self) -> list:
-        '''
+        """
         Список доступной брони.
-        '''
+        """
         return [armor.name for armor in self.equipment.armors]
 
     @staticmethod
